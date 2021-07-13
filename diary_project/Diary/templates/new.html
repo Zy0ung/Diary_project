@@ -7,12 +7,15 @@
 <div class="header">
     <h1>일기 작성</h1>
 </div>
+<div class="post">
 <form method="POST" action="{% url 'create' %}">
     {% csrf_token %}
-    <div><input name="title" type="text" placeholder="제목"></div>
-    <div><input name="weather" type="text" placeholder="날씨"></div>
-    <div><input name="body" type="text" placeholder="내용"></div>
+    <div>제목 : <input name="title" type="text" placeholder="제목을 입력하세요"></div>
+    <div>날씨 : <input name="weather" type="text" placeholder="날씨"></div>
+    <div>내용 : <br>
+        <textarea name="body" cols="30" rows="5"></textarea>
+    </div>
     <div><button>작성</button></div>
 </form>
- 
+</div>
 {% endblock %}
