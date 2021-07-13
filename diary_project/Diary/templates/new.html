@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 홈 화면 {% endblock %} 
+{% block link %} {% static 'css/home.css' %} {% endblock %}
+{% block content %}
+
+<div class="header">
+    <h1>일기 작성</h1>
+</div>
+<form method="POST" action="{% url 'create' %}">
+    {% csrf_token %}
+    <div><input name="title" type="text" placeholder="제목"></div>
+    <div><input name="weather" type="text" placeholder="날씨"></div>
+    <div><input name="body" type="text" placeholder="내용"></div>
+    <div><button>작성</button></div>
+</form>
+ 
+{% endblock %}

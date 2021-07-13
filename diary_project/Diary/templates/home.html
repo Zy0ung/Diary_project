@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %} 홈 화면 {% endblock %} 
+{% block link %} {% static 'css/home.css' %} {% endblock %}
+{% block content %}
+
+<div class="header">
+    <h1>Diary</h1>
+</div>
+{% for diary in diaries %}
+<div class="bodystyle">
+  <p>제목 : {{diary.title}}</p>
+  <p>{{diary.pub_date}}</p>
+  <p>{{diary.body}}</p>
+</div>
+<hr>
+{% endfor %} 
+{% endblock %}
