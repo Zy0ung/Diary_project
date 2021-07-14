@@ -24,3 +24,8 @@ def create(request):
 def detail(request, id):
     diary = get_object_or_404(Diary, pk=id)
     return render(request, 'detail.html', {'diary':diary})
+
+def delete(request, id):
+    delete_diary = Diary.objects.get(id = id)
+    delete_diary.delete()
+    return redirect('home')

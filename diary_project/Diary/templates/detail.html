@@ -7,4 +7,5 @@
     <p>{{diary.pub_date}}</p>
     <p><img src="{{ diary.image.url }}" alt="없음" width="200"></p>
     <p>{{diary.body}}</p>
+    <a href="{% url 'delete' diary.id %}"><input type="button" value="삭제"></a>
 {% endblock %}
