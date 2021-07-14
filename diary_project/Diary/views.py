@@ -20,3 +20,7 @@ def create(request):
             return redirect('home')
     else:
         return render(request, 'new.html')
+
+def detail(request, id):
+    diary = get_object_or_404(Diary, pk=id)
+    return render(request, 'detail.html', {'diary':diary})

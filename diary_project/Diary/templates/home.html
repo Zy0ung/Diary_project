@@ -13,7 +13,7 @@
   <p>제목 : {{diary.title}}</p>
   <p>{{diary.pub_date}}</p>
   <p><img src="{{ diary.image.url }}" alt="없음" width="200"></p>
-  <p>{{diary.body}}</p>
+  <a href="{% url 'detail' diary.id %}">자세히보기</a>
 </div>
 <hr>
 {% endfor %} 
