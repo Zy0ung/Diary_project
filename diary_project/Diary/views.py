@@ -13,6 +13,7 @@ def create(request):
             new_diary = Diary()
             new_diary.title = request.POST['title']
             new_diary.body = request.POST['body']
+            new_diary.image = request.FILES['image']
             new_diary.pub_date = timezone.now()
             new_diary.weather = request.POST['weather']
             new_diary.save()
