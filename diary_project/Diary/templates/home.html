@@ -15,6 +15,21 @@
   <p><img src="{{ diary.image.url }}" alt="없음" width="200"></p>
   <a href="{% url 'detail' diary.id %}">자세히보기</a>
 </div>
+{% endfor %}
 <hr>
-{% endfor %} 
+
+  {% if diaries.has_previous %}
+  <a href="?page=1">처음</a>
+  <a href="?page={{diaries.previous_page_number}}">이전</a>
+  {% endif %}
+  
+  <span>{{diaries.number}}</span>
+  <span>of</span>
+  <span>{{diaries.paginator.num_pages}}</span>
+  
+  {% if diaries.has_next %}
+  <a href="?page={{ diaries.next_page_number}}">다음</a>
+  <a href="?page={{ diaries.paginator.num_pages }}">마지막</a>
+  {% endif %}
+
 {% endblock %}

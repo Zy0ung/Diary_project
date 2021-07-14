@@ -1,12 +1,17 @@
+from django.core import paginator
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import *
 from Diary.models import Diary
 from django.utils import timezone
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
-    diaries = Diary.objects.all()
-    return render(request, 'home.html', {'diaries':diaries})
+    diaries = Diary.objects.order_by('-pub_date')
+    paginator = Paginator(diaries, 3)
+    page = request.GET.get('page')
+    diaries = paginator.get_page(page)
+    return render(request, 'home.html', {'diaries': diaries})
 
 def create(request):
     if request.method == 'POST':
@@ -29,3 +34,4 @@ def delete(request, id):
     delete_diary = Diary.objects.get(id = id)
     delete_diary.delete()
     return redirect('home')
+
