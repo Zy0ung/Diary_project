@@ -1,4 +1,71 @@
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .header{
-    display:flex;
-    border-bottom: 2px solid black;
+    text-align: center;
+    padding-top: 3%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'KyoboHand';
+}
+ul, li {
+    list-style: none;
+}
+
+.list_wrap {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 100px;
+    padding-top: 5%;
+}
+
+.list_wrap ul {
+    font-size: 0;
+}
+
+.list_wrap .item {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin-left: 5%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 5%;
+    border-radius: 20px;
+}
+
+.list_wrap .item:nth-child(-n+3) {
+    margin-top: 0;
+}
+
+.list_wrap .item:nth-child(3n-2) {
+    margin-left: 0;
+}
+
+img{
+    width: 230px;
+    height: 230px;
+    border-radius: 20px 20px 0 0 ;
+}
+
+.list_wrap .item p {
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+
+.list_wrap .item a {
+    display: inline-block;
+    padding-top: 5%;
+    font-size: 13px;
+    letter-spacing: -1px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
 }

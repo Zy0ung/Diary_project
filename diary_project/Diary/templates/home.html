@@ -8,17 +8,21 @@
 <div class="header">
     <h1>Diary</h1>
 </div>
-{% for diary in diaries %}
-<div class="bodystyle">
-  <p>제목 : {{diary.title}}</p>
-  <p>{{diary.pub_date}}</p>
-  <p><img src="{{ diary.image.url }}" alt="없음" width="200"></p>
-  <a href="{% url 'detail' diary.id %}">자세히보기</a>
-</div>
-{% endfor %}
-<hr>
 
-  {% if diaries.has_previous %}
+<div class="list_wrap">
+  <ul>
+  {% for diary in diaries %}
+    <div class="item">
+      <p><img src="{{ diary.image.url }}" alt="없음" width="200"></p>
+      <p><strong>{{diary.title}}<br></strong>
+      {{diary.pub_date}}<br>
+      <strong><a href="{% url 'detail' diary.id %}">자세히보기</a></strong>
+      </p>
+    </div>
+    {% endfor %}
+  </ul>
+  <div class="page">
+    {% if diaries.has_previous %}
   <a href="?page=1">처음</a>
   <a href="?page={{diaries.previous_page_number}}">이전</a>
   {% endif %}
@@ -31,5 +35,6 @@
   <a href="?page={{ diaries.next_page_number}}">다음</a>
   <a href="?page={{ diaries.paginator.num_pages }}">마지막</a>
   {% endif %}
-
+  </div>
+</div>
 {% endblock %}
