@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
 from Diary import views as D
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,4 +26,5 @@ urlpatterns = [
     path('diary/create', D.create ,name='create'),
     path('<str:id>', D.detail, name='detail'),
     path('delete/<str:id>', D.delete, name='delete'),
+    path('accounts/', include('allauth.urls')),
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

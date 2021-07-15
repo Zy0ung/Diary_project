@@ -1,30 +1,31 @@
 {% extends 'base.html' %} 
 {% load static %} 
-
+{% load socialaccount %}
 {% block title %} 홈 화면 {% endblock %} 
 {% block link %} {% static 'css/home.css' %} {% endblock %}
 {% block content %}
 
 <div class="header">
-    <h1>Diary</h1>
-</div>
+    <h1>[My Diary]</h1>
+    <h3>소중한 하루를 기록 해보세요.</h3>
+  </div>
 
 <div class="list_wrap">
   <ul>
   {% for diary in diaries %}
     <div class="item">
-      <p><img src="{{ diary.image.url }}" alt="없음" width="200"></p>
-      <p><strong>{{diary.title}}<br></strong>
-      {{diary.pub_date}}<br>
-      <strong><a href="{% url 'detail' diary.id %}">자세히보기</a></strong>
-      </p>
+      <a href="{% url 'detail' diary.id %}">
+      <p><img src="{{ diary.image.url }}" alt="없음" ></p>
+      <p><strong>{{diary.title}}</strong><br>
+      {{diary.pub_date}}</p>
+    </a>
     </div>
     {% endfor %}
   </ul>
+
   <div class="page">
     {% if diaries.has_previous %}
-  <a href="?page=1">처음</a>
-  <a href="?page={{diaries.previous_page_number}}">이전</a>
+    <a href="?page={{diaries.previous_page_number}">prev</a>
   {% endif %}
   
   <span>{{diaries.number}}</span>
@@ -32,8 +33,7 @@
   <span>{{diaries.paginator.num_pages}}</span>
   
   {% if diaries.has_next %}
-  <a href="?page={{ diaries.next_page_number}}">다음</a>
-  <a href="?page={{ diaries.paginator.num_pages }}">마지막</a>
+  <a href="?page={{ diaries.next_page_number}}">next</a>
   {% endif %}
   </div>
 </div>

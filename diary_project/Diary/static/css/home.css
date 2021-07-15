@@ -23,7 +23,7 @@ ul, li {
     width: 1000px;
     margin: 0 auto;
     padding: 100px;
-    padding-top: 5%;
+    padding-top: 3%;
 }
 
 .list_wrap ul {
@@ -36,7 +36,6 @@ ul, li {
     text-align: center;
     margin-left: 5%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 5%;
     border-radius: 20px;
 }
 
@@ -61,11 +60,16 @@ img{
 }
 
 .list_wrap .item a {
-    display: inline-block;
-    padding-top: 5%;
-    font-size: 13px;
-    letter-spacing: -1px;
     text-decoration: none;
     color: black;
     text-align: center;
+}
+
+.page{
+    text-decoration: none;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
