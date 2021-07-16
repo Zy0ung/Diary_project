@@ -34,4 +34,3 @@ def delete(request, id):
     delete_diary = Diary.objects.get(id = id)
     delete_diary.delete()
     return redirect('home')
-

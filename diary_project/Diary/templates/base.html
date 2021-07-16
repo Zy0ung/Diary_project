@@ -29,15 +29,17 @@
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
               <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
             </form>
-    
             <div class="text-end">
-            <a href="{% provider_login_url 'google' %}"><button type="button" class="btn btn-outline-light me-2">Google Login</button></a>
+              {% if user.is_authenticated %}
+              <h5>지영님의 하루 기록</h5>
+              {% else %}
+              <a href="{% provider_login_url 'google' %}"><button type="button" class="btn btn-outline-light me-2">Google Login</button></a>
               <button type="button" class="btn btn-warning">Sign-up</button>
+              {% endif %}
             </div>
           </div>
         </div>
       </header>
-    
     {% block content %} {% endblock %}
 </body>
 </html> 
